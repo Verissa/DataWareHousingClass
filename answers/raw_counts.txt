@@ -1,0 +1,7 @@
+Table name: bike_data. Number of rows: 4780363
+Table name: central_park_weather. Number of rows: 2984
+Table name: fhv_bases. Number of rows: 1098
+Table name: fhv_tripdata. Number of rows: 3008649
+Table name: fhvhv_tripdata. Number of rows: 32182272
+Table name: green_tripdata. Number of rows: 238718
+Table name: yellow_tripdata. Number of rows: 5454972
