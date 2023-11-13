@@ -14,7 +14,7 @@ renamed as (
         passenger_count,
         trip_distance,
         ratecodeID,
-        store_and_fwd_flag::boolean as store_and_fwd_flag,
+        {{flag_to_bool("store_and_fwd_flag")}} as store_and_fwd_flag,
         PUlocationID as pickup_locationID,
         DOlocationID as dropOff_locationID,
         payment_type,
