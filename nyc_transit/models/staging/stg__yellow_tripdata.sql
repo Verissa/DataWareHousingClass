@@ -21,7 +21,7 @@ renamed as (
         extra,
         --https://docs.getdbt.com/sql-reference/case for handling garbage values
         mta_tax,
-        case when mta_tax < 0.50 then 0.00
+        case when mta_tax < 0.00 then 0.00
             else mta_tax
         end as mta_tax,
         tip_amount,
@@ -33,7 +33,7 @@ renamed as (
             else tolls_amount
         end as tolls_amount,
         improvement_surcharge,
-        case when improvement_surcharge < 0.30 then 0.00
+        case when improvement_surcharge < 0.00 then 0.00
             else improvement_surcharge
         end as improvement_surcharge,
         total_amount,
@@ -45,7 +45,7 @@ renamed as (
             else congestion_surcharge
         end as congestion_surcharge,
         airport_fee,
-        case when airport_fee < 1.25 then 0.00
+        case when airport_fee < 0.00 then 0.00
             else airport_fee
         end as airport_fee,
     --trim the extra blankspaces and convert all strings to upper case
