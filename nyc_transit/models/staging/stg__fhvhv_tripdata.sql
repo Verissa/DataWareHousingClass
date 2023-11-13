@@ -24,18 +24,18 @@ renamed as (
         bcf as black_car_fund,
         sales_tax,
         airport_fee,
-        case when airport_fee < 2.50 then 0.00
+        case when airport_fee < 0.00 then 0.00
             else airport_fee
         end as airport_fee,
         tips,
         driver_pay,
         congestion_surcharge,
         --converting string values to boolean
-        shared_request_flag::boolean as shared_ride_request_flag,
-        shared_match_flag::boolean as shared_ride_match_flag,
-        access_a_ride_flag:: boolean as access_a_ride_flag,
-        wav_request_flag:: boolean as wheelchairAccessVan_request_flag,
-        wav_match_flag:: boolean as wheelchairAccessVan_match_flag, 
+        {{flag_to_bool("shared_request_flag")}} as shared_request_flag,
+        {{flag_to_bool("shared_match_flag")}} as shared_match_flag,
+        {{flag_to_bool("access_a_ride_flag")}} as access_a_ride_flag,
+        {{flag_to_bool("wav_request_flag")}} as wav_request_flag,
+        {{flag_to_bool("wav_match_flag")}} as wav_match_flag,
         trim(upper(filename)) as filename
     
     from source
