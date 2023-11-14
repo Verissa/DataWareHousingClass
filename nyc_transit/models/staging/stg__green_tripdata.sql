@@ -21,29 +21,29 @@ renamed as (
         fare_amount,
         --https://docs.getdbt.com/sql-reference/case for handling garbage values
         extra,
-        case when extra < 0.00 then 0.00
-            else extra
-        end as extra,
+        --case when extra < 0.00 then 0.00
+        /*     else extra
+        end as extra, */
         mta_tax,
-        case when mta_tax < 0.00 then 0.00
+        /* case when mta_tax < 0.00 then 0.00
             else mta_tax
-        end as mta_tax,
+        end as mta_tax, */
         tip_amount,
-        case when tip_amount < 0.00 then 0.00
+        /* case when tip_amount < 0.00 then 0.00
             else tip_amount
-        end as tip_amount,
+        end as tip_amount, */
         tolls_amount,
-        case when tolls_amount < 0.00 then 0.00
+        /* case when tolls_amount < 0.00 then 0.00
             else tolls_amount
-        end as tolls_amount,
+        end as tolls_amount, */
         improvement_surcharge,
-        case when improvement_surcharge < 0.00 then 0.00
+        /* case when improvement_surcharge < 0.00 then 0.00
             else improvement_surcharge
-        end as improvement_surcharge,
+        end as improvement_surcharge, */
         total_amount,
-        case when total_amount < 0.00 then 0.00
+        /* case when total_amount < 0.00 then 0.00
             else total_amount
-        end as total_amount,
+        end as total_amount, */
         trip_type,
         congestion_surcharge,
             --trim the extra blankspaces and convert all strings to upper case

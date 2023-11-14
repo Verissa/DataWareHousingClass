@@ -7,10 +7,9 @@ with source as (
 renamed as (
 
     select
-        --trim the extra blankspaces and convert all strings to upper case
-        trim(upper(hvfhs_license_num)) as highvol_forhiresevs_licenseNum,
-        trim(upper(dispatching_base_num)) as dispatching_base_number,
-        trim(upper(originating_base_num)) as originating_base_number,
+        hvfhs_license_num as highvol_forhiresevs_licenseNum,
+        dispatching_base_num,
+        originating_base_num,
         request_datetime,
         on_scene_datetime,
         pickup_datetime,
@@ -24,9 +23,9 @@ renamed as (
         bcf as black_car_fund,
         sales_tax,
         airport_fee,
-        case when airport_fee < 0.00 then 0.00
-            else airport_fee
-        end as airport_fee,
+        --case when airport_fee < 0.00 then 0.00
+            --else airport_fee
+        --end as airport_fee,
         tips,
         driver_pay,
         congestion_surcharge,
@@ -41,4 +40,38 @@ renamed as (
     from source
 )
 
-select * from renamed
+select
+
+         --trim the extra blankspaces and convert all strings to upper case
+        trim(upper(highvol_forhiresevs_licenseNum)), 
+        trim(upper(dispatching_base_num)) as dispatching_base_num,
+        trim(upper(originating_base_num)) as originating_base_num,
+        request_datetime,
+        on_scene_datetime,
+        pickup_datetime,
+        dropOff_datetime,
+        pickup_locationID,
+        dropOff_locationID,
+        trip_miles,
+        trip_time,
+        base_passenger_fare,
+        tolls,
+        black_car_fund,
+        sales_tax,
+        airport_fee,
+        --case when airport_fee < 0.00 then 0.00
+            --else airport_fee
+        --end as airport_fee,
+        tips,
+        driver_pay,
+        congestion_surcharge,
+        --converting string values to boolean
+        shared_request_flag,
+        shared_match_flag,
+        access_a_ride_flag,
+        wav_request_flag,
+        wav_match_flag,
+        trim(upper(filename)) as filename
+
+
+from renamed
